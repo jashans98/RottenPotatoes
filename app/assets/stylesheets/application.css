@@ -57,9 +57,22 @@ table#movies th, table#movies td {
 }
 
 #notice, #warning {
-  background: rosybrown;
   margin: 1em 0;
   padding: 4px;
+  color: #eee;
+}
+
+#warning {
+  background: rosybrown;
+}
+
+#notice {
+  background: darkgreen;
+}
+
+.message {
+  text-align: center;
+  font-size: 1.1rem;
 }
 
 form label {
