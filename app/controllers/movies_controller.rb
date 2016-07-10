@@ -15,8 +15,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    valid_params = params.require(:movie).permit(:title, :rating, :release_date)
-    @movie = Movie.create(valid_params)
+    @movie = Movie.create(movie_params)
     if @movie != nil
       flash[:notice] = "#{@movie.title} was successfully created"
     else
@@ -30,9 +29,8 @@ class MoviesController < ApplicationController
   end
 
   def update
-    valid_params = params.require(:movie).permit(:title, :rating, :release_date)
     @movie = Movie.find(params[:id])
-    @movie.update_attributes(valid_params)
+    @movie.update_attributes(movie_params)
     flash[:notice] = "#{@movie.title} was successfully updated"
     redirect_to movie_path(@movie)
   end
@@ -42,5 +40,9 @@ class MoviesController < ApplicationController
     @movie.destroy
     flash[:notice] = "#{@movie.title} was successfully deleted"
     redirect_to movies_path
+  end
+
+  def movie_params
+    params.require(:movie).permit(:title, :rating, :release_date, :description)
   end
 end

@@ -8,6 +8,8 @@
     = csrf_meta_tags
 
   %body
+    - # Add a large banner for every page
+    %h1.title Rotten Potatoes
     - if flash[:notice]
       #notice.message= flash[:notice]
     - elsif flash[:warning]
