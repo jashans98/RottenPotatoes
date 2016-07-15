@@ -5,13 +5,13 @@
   = text_field :movie, 'title'
 
   = label :movie, :description, 'Description'
-  = text_area :movie, :description
+  = text_area :movie, :description, :cols=> "50", :rows => "5"
 
   = label :movie, :rating, 'Rating'
   = select :movie, :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17']
 
   = label :movie, :release_date, 'Release Date'
-  = date_select :movie, :release_date. :start_year => 1945
+  = date_select :movie, :release_date, :start_year => 1945
 
   = submit_tag 'Save Changes'
 

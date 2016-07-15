@@ -26,6 +26,7 @@ class MoviesController < ApplicationController
 
   def edit
     @movie = Movie.find(params[:id])
+    # handed over to edit.html.haml
   end
 
   def update
@@ -43,6 +44,7 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
+    # helper method to get movie allowed params easily
     params.require(:movie).permit(:title, :rating, :release_date, :description)
   end
 end
