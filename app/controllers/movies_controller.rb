@@ -1,6 +1,10 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    if params[:sort_by]
+      @movies = Movie.order(params[:sort_by])
+    else
+      @movies = Movie.all
+    end
     # handed over to index.html.haml
   end
 
